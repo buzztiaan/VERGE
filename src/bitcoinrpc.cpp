@@ -219,13 +219,6 @@ static const CRPCCommand vRPCCommands[] =
     { "getaccount",             &getaccount,             false,  false },
     { "getaddressesbyaccount",  &getaddressesbyaccount,  true,   false },
     { "sendtoaddress",          &sendtoaddress,          false,  false },
-	{ "getnewstealthaddress",   &getnewstealthaddress,   false,  false },
-    { "liststealthaddresses",   &liststealthaddresses,   false,  false },
-    { "importstealthaddress",   &importstealthaddress,   false,  false },
-    { "sendtostealthaddress",   &sendtostealthaddress,   false,  false },
-	{ "clearwallettransactions",&clearwallettransactions,false,  false },
-    { "scanforalltxns",         &scanforalltxns,         false,  false },
-    { "scanforstealthtxns",     &scanforstealthtxns,     false,  false },
     { "getreceivedbyaddress",   &getreceivedbyaddress,   false,  false },
     { "getreceivedbyaccount",   &getreceivedbyaccount,   false,  false },
     { "listreceivedbyaddress",  &listreceivedbyaddress,  false,  false },
@@ -1197,8 +1190,6 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "createrawtransaction"   && n > 1) ConvertTo<Object>(params[1]);
     if (strMethod == "signrawtransaction"     && n > 1) ConvertTo<Array>(params[1], true);
     if (strMethod == "signrawtransaction"     && n > 2) ConvertTo<Array>(params[2], true);
-	if (strMethod == "sendtostealthaddress"   && n > 1) ConvertTo<double>(params[1]);
-	if (strMethod == "importstealthaddress"   && n > 2) ConvertTo<bool>(params[1]);
 
     return params;
 }
